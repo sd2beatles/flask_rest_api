@@ -4,9 +4,8 @@ from flask_jwt_extended import JWTManager
 from resources.geography import blp as GeoBluePrint
 from resources.weather import blp as WeatherPrint
 from configparser import ConfigParser
-import os
-
 from db import db
+import os
 
 
 def get_value(path,key,value,interpolation=True):

@@ -4,12 +4,14 @@ from flask import request,make_response
 from flask.views import MethodView
 from flask_smorest import Blueprint,abort
 from sqlalchemy.exc import SQLAlchemyError
-from backend.schema import PlainWeatherSchema,WeatherSchema,WeatherSearchSchema
-from backend.models.weather import WeatherInfoModel
+import sys
+sys.path.append("..")
+from db import db
+from schema import PlainWeatherSchema,WeatherSchema,WeatherSearchSchema
+from models.weather import WeatherInfoModel
 from datetime import datetime
 from sqlalchemy.exc import SQLAlchemyError,IntegrityError
-from datetime import datetime
-from backend.db import db
+
 
 
 blp=Blueprint("weather",__name__,description="Operation on Weather Information")

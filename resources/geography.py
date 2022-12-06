@@ -2,11 +2,14 @@ from flask import request,make_response
 from flask.views import MethodView
 from flask_smorest import Blueprint,abort
 from sqlalchemy.exc import SQLAlchemyError
+import sys
+sys.path.append("..")
+from db import db
 from schema import PlainGeoSchema,GeoUpdateSchema,GeoParamSchema,GeoSearchAll
 from models.geography import GeoModel
 from datetime import datetime
 from sqlalchemy.exc import SQLAlchemyError,IntegrityError
-from backend.db import db
+from db import db
 
 
 blp=Blueprint("geography",__name__,description="Operation on Geo Information")

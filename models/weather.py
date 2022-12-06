@@ -1,5 +1,6 @@
 import sys
-from backend.db import db
+sys.path.append("..")
+from db import db
 
 
 
