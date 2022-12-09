@@ -1,9 +1,11 @@
 FROM python:3.9
 WORKDIR /app
+
+COPY . .
 COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
-CMD ["gunicorn","--bind","0.0.0.0:80","app:create_app()"]
+EXPOSE 5000
 
+CMD ["python", "-m", "flask", "run", "--host","0.0.0.0"]

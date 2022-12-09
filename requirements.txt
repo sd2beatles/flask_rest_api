@@ -6,4 +6,5 @@ flask-sqlalchemy
 flask-jwt-extended
 passlib
 gunicorn
+pymysql
 
