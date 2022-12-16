@@ -17,8 +17,8 @@ def get_value(path,key,value,interpolation=True):
 
 
 def create_app(db_url=None):
-    # user,passwd=get_value('dev.ini','mysql','user'),get_value('dev.ini','mysql','password')
-    # ip_address=get_value('dev.ini','mysql','ip')
+    user,passwd=get_value('dev.ini','mysql','user'),get_value('dev.ini','mysql','password')
+    ip_address=get_value('dev.ini','mysql','ip')
     
     user,passwd,ip_address=os.getenv("user"),os.getenv("password"),os.getenv("ip")
     
@@ -33,7 +33,7 @@ def create_app(db_url=None):
     app.config["OPENAPI_SWAGGER_UI_URL"]="https://cdn.jsdelivr.net/npm/swagger-ui-dist/"
     #app.config["SQLALCHEMY_DATABASE_URI"]=db_url or os.getenv("DATABASE_URL","sqlite:///data.db")
     app.config["SQLALCHEMY_DATABASE_URI"]="mysql+pymysql://{0}:{1}@{2}:3306/solardb"\
-        .format("david","1234","0.0.0.0")
+        .format(user,passwd,ip_address)
     #mysql+pymysql
     app.config["SQLALCHEMY_TRACK_MODIFICATION"]=False
     db.init_app(app)
